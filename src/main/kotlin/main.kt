@@ -1,10 +1,130 @@
+import java.math.BigInteger
 
 val lab1 = Lab1()
 val lab2 = Lab2()
+val lab3 = Lab3()
+val lab4 = Lab4()
 
 fun main(){
-    checkLab2()
+    //checkLab4()
+    checkLab3()
+    //checkLab2()
     //checkLab1()
+}
+//10011111001110011111001100110001001100000111001110010101011100100101111100011000101101001001101100010010111111001001101111111110001001110100010100110011110010101010010110011
+//10011111001110011111001100110001001100000111001110010101011100100101111100011000101101001001101100010010111111001001101111111110001001110100010100110011110010101010010110011
+
+fun checkLab4(){
+    val num1 = "01011011000010101101011011001111010001110110011111001010101011111011000011011101110111110001010011110001000110001010110111000110010100110110010010101111101010100111001111011"
+    val num2 = "11001011001011000101001111110000010000000111010100001101011010111000100100010110100000000010000111111010100010111010101100110110101101010001000001101011011000011111100010110"
+    val n = "11001001011110101110011101000111101010101110101010111000110010001101010110000101100101010000000000000100011110100000000111010110001011100111000110001011010000111010110001010"
+    //add4(num1, num2)
+    //sqr4(num1)
+    //mul4(num1, num2)
+    //trace4(num1)
+    //power4(num1, n)
+    //inv4(num1)
+    //test41(num1, num2, n)
+    //test42(num1)
+}
+
+fun add4(num1 : String, num2 : String){
+    val res = lab4.add(mapStringToBin(num1), mapStringToBin(num2))
+    println(mapBinToString(res))
+}
+
+fun sqr4(num1 : String){
+    val res = lab4.sqr(mapStringToBin(num1))
+    println(mapBinToString(res))
+}
+
+fun mul4(num1 : String, num2 : String){
+    val res = lab4.multiply(mapStringToBin(num1), mapStringToBin(num2))
+    println(mapBinToString(res))
+}
+
+fun power4(num1 : String, num2 : String){
+    val res = lab4.power(mapStringToBin(num1), mapStringToBin(num2))
+    println(mapBinToString(res))
+}
+
+fun inv4(num1 : String){
+    val res = lab4.inv(mapStringToBin(num1))
+    println(mapBinToString(res))
+}
+
+fun trace4(num1 : String){
+    val res = lab4.trace(mapStringToBin(num1))
+    println(mapBinToString(res))
+}
+
+fun test41(num1: String, num2: String, num3 : String){
+    val a = mapStringToBin(num1)
+    val b = mapStringToBin(num2)
+    val c = mapStringToBin(num3)
+    val aSumB = lab4.add(a, b)
+    val abc = lab4.multiply(aSumB, c)
+    val ac = lab4.multiply(a, c)
+    val bc = lab4.multiply(b, c)
+    val abc2 = lab4.add(ac, bc)
+    if(abc == abc2)
+        print("Ok")
+    else
+        print("Wrong")
+}
+
+fun test42(num1: String){
+    val a = mapStringToBin(num1)
+    val n = BigInteger.valueOf(2).pow(a.size).subtract(BigInteger.valueOf(1))
+    val nBinary = mapBinFromDec(n)
+    val power = lab4.power(a, nBinary)
+    print(mapBinToString(power))
+
+}
+
+fun checkLab3(){
+    val num1 = "01110110101110011010100101100011000011000111101010101001101111001010001001000110011110001001111001100010101010100011111000110011001110010111100110010100110100101011101001100"
+    val num2 = "01100000011111010011010110010010011011111111001001000000110001011101100111010011110001100100000001001100010110101101111110010001010010000001000110110100100101101001001111001"
+    val num3 = "01010001101010100010000101001101101101100001000100010101101101101100010001000000011110001100001110111001000010100010000111001010001101000110110101000110001010101000110010000"
+    //add3(num1, num2)
+    //mul3(num1, num2)
+    //trace3(num1)
+    //power3(num1, num3)
+    inv3(num1)
+}
+//1111001110000010010111000110001011101010011100000000111011010110100110001010111011100000101101100110010111100111111110101000100111001000001001011001101111000001001111101110
+//01111001110000010010111000110001011101010011100000000111011010110100110001010111011100000101101100110010111100111111110101000100111001000001001011001101111000001001111101110
+
+fun add3(num1: String, num2: String){
+    val resInt = lab3.addLong(mapStringToBin(num1), mapStringToBin(num2))
+    val res = mapBinToString(resInt)
+    println(res)
+}
+
+fun mul3(num1: String, num2: String){
+    //println(mapStringToBin(num1))
+    val resInt = lab3.mulMod(mapStringToBin(num1), mapStringToBin(num2))
+    //println(resInt)
+    val res = mapBinToString(resInt.r)
+    println(res)
+}
+
+fun trace3(num1 : String){
+    val resInt = lab3.trace(mapStringToBin(num1))
+    val res = mapBinToString(resInt)
+    println(res)
+}
+
+fun power3(num1 : String, num2: String){
+    val resInt = lab3.power(mapStringToBin(num1), mapStringToBin(num2))
+    val res = mapBinToString(resInt)
+    println(res)
+}
+
+fun inv3(num1 : String){
+    val resInt = lab3.inv(mapStringToBin(num1))
+    val res = mapBinToString(resInt)
+    println(res)
 }
 
 fun checkLab2(){
